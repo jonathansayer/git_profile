@@ -7,7 +7,7 @@ describe('GitUserSearchController', function() {
     ctrl = $controller('GitUserSearchController');
   }));
 
-  xit('initialises with an empty search result and term', function() {
+  it('initialises with an empty search result and term', function() {
     expect(ctrl.searchResult).toBeUndefined();
     expect(ctrl.searchTerm).toBeUndefined();
   });
@@ -18,7 +18,7 @@ describe('GitUserSearchController', function() {
     beforeEach(inject(function($httpBackend) {
       httpBackend = $httpBackend
       httpBackend
-        .when("GET", "https://api.github.com/search/users")
+        .when("GET", "https://api.github.com/search/users?q=hello")
         .respond(
         { items: items }
       );
